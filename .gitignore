@@ -1,0 +1,24 @@
+.venv*
+project.md
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# FastF1 cache and pre-fetched race Parquet files (uploaded to HF Datasets instead)
+data/cache/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,93 @@
+races:
+  # Strategy What-If primary races
+  - season: 2021
+    round: 14
+    name: "Italian GP"
+    circuit: "Monza"
+    modes: [what_if, commentary]
+
+  - season: 2021
+    round: 22
+    name: "Abu Dhabi GP"
+    circuit: "Yas Marina"
+    modes: [what_if, demo_anchor]
+
+  - season: 2022
+    round: 12
+    name: "French GP"
+    circuit: "Paul Ricard"
+    modes: [what_if]
+
+  - season: 2023
+    round: 10
+    name: "British GP"
+    circuit: "Silverstone"
+    modes: [what_if, demo_anchor]
+
+  - season: 2023
+    round: 21
+    name: "Las Vegas GP"
+    circuit: "Las Vegas Street Circuit"
+    modes: [what_if]
+
+  - season: 2024
+    round: 8
+    name: "Monaco GP"
+    circuit: "Circuit de Monaco"
+    modes: [what_if, commentary]
+
+  # Commentary primary races
+  - season: 2023
+    round: 17
+    name: "Japanese GP"
+    circuit: "Suzuka"
+    modes: [commentary]
+
+  - season: 2024
+    round: 18
+    name: "Singapore GP"
+    circuit: "Marina Bay"
+    modes: [commentary]
+
+  - season: 2024
+    round: 21
+    name: "Brazilian GP"
+    circuit: "Interlagos"
+    modes: [commentary, demo_anchor]
+
+  - season: 2025
+    round: 1
+    name: "Bahrain GP"
+    circuit: "Bahrain International Circuit"
+    modes: [commentary]
+
+  - season: 2025
+    round: 8
+    name: "Spanish GP"
+    circuit: "Circuit de Barcelona-Catalunya"
+    modes: [commentary]
+
+  # Additional What-If races to reach 15
+  - season: 2022
+    round: 8
+    name: "Azerbaijan GP"
+    circuit: "Baku City Circuit"
+    modes: [what_if]
+
+  - season: 2023
+    round: 6
+    name: "Monaco GP"
+    circuit: "Circuit de Monaco"
+    modes: [what_if]
+
+  - season: 2024
+    round: 6
+    name: "Miami GP"
+    circuit: "Miami International Autodrome"
+    modes: [commentary]
+
+  - season: 2024
+    round: 24
+    name: "Abu Dhabi GP"
+    circuit: "Yas Marina"
+    modes: [commentary, what_if]

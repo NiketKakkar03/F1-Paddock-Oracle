@@ -1,0 +1,7 @@
+# Dev-only: data ingestion. NOT installed in the Gradio Space runtime.
+fastf1>=3.3.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+pyyaml>=6.0
+huggingface-hub>=0.22.0
+requests>=2.31.0
