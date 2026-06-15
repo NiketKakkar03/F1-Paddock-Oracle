@@ -33,23 +33,180 @@ F1_CSS = """
     --f1-text: #f4f4f4;
     --f1-muted: #a8a8a8;
     --f1-accent: #e8002d;
+    --f1-line: rgba(255, 255, 255, 0.13);
 }
 
 .gradio-container {
-    background: var(--f1-bg) !important;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(232, 0, 45, 0.18), transparent 32rem),
+        linear-gradient(135deg, #060606 0%, var(--f1-bg) 48%, #181818 100%) !important;
     color: var(--f1-text) !important;
+    min-height: 100vh;
 }
 
 #f1-shell {
-    max-width: 1180px;
+    max-width: 1220px;
     margin: 0 auto;
+    padding: 20px 18px 42px;
+}
+
+#f1-hero {
+    position: relative;
+    min-height: 270px;
+    overflow: hidden;
+    border: 1px solid var(--f1-line);
+    border-radius: 18px;
+    background: #090909;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    isolation: isolate;
+}
+
+#f1-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(15, 15, 15, 0.92) 0%, rgba(15, 15, 15, 0.76) 42%, rgba(15, 15, 15, 0.3) 100%),
+        linear-gradient(180deg, rgba(15, 15, 15, 0.1), rgba(15, 15, 15, 0.82));
+}
+
+#f1-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 22px);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.driver-bg {
+    position: absolute;
+    inset: 0;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: min(46vw, 520px) auto;
+    opacity: 0;
+    transform: scale(1.04);
+    animation: driverFade 35s infinite;
+    filter: saturate(0.95) contrast(1.05);
+}
+
+.driver-bg.verstappen {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_%28medium_crop%29.jpg/900px-2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_%28medium_crop%29.jpg");
+}
+
+.driver-bg.hamilton {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_%2854566928382%29_%28cropped%29.jpg/900px-Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_%2854566928382%29_%28cropped%29.jpg");
+    animation-delay: 7s;
+}
+
+.driver-bg.schumacher {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/A%C3%A9cio_Neves%2C_Michael_Schumacher_e_Didi_%28Cropped%29.jpg/900px-A%C3%A9cio_Neves%2C_Michael_Schumacher_e_Didi_%28Cropped%29.jpg");
+    animation-delay: 14s;
+}
+
+.driver-bg.senna {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ayrton_Senna_9_%28cropped%29.jpg/900px-Ayrton_Senna_9_%28cropped%29.jpg");
+    animation-delay: 21s;
+}
+
+.driver-bg.norris {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3968_by_Stepro_%28cropped2%29.jpg/900px-2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3968_by_Stepro_%28cropped2%29.jpg");
+    animation-delay: 28s;
+}
+
+@keyframes driverFade {
+    0%, 100% { opacity: 0; transform: scale(1.04); }
+    4%, 18% { opacity: 0.58; transform: scale(1); }
+    23% { opacity: 0; transform: scale(1.015); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 680px;
+    padding: 34px;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #f6f6f6;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.hero-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 3px;
+    background: var(--f1-accent);
+    border-radius: 999px;
+}
+
+.hero-title {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.4rem, 6vw, 4.9rem);
+    line-height: 0.94;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.hero-title span {
+    color: var(--f1-accent);
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.hero-chip {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 7px 11px;
+    background: rgba(15, 15, 15, 0.58);
+    color: #f5f5f5;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.76rem;
+}
+
+.hero-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    height: 4px;
+    background: linear-gradient(90deg, var(--f1-accent), #ffffff, #2dd4bf, var(--f1-accent));
+    background-size: 220% 100%;
+    animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+    to { background-position: 220% 0; }
 }
 
 #race-topbar {
-    background: var(--f1-panel);
-    border: 1px solid #2b2b2b;
+    margin-top: 14px;
+    background: rgba(23, 23, 23, 0.88);
+    border: 1px solid var(--f1-line);
     border-left: 4px solid var(--f1-accent);
+    border-radius: 12px;
     padding: 16px;
+    backdrop-filter: blur(18px);
 }
 
 #race-topbar label,
@@ -58,6 +215,32 @@ F1_CSS = """
 #race-topbar button,
 #race-topbar select {
     font-family: "JetBrains Mono", monospace !important;
+}
+
+.gradio-container .form,
+.gradio-container .block,
+.gradio-container .panel,
+.gradio-container .tabs,
+.gradio-container .tabitem {
+    border-color: var(--f1-line) !important;
+}
+
+.gradio-container input,
+.gradio-container textarea,
+.gradio-container select {
+    background: #101010 !important;
+    color: var(--f1-text) !important;
+}
+
+.gradio-container button {
+    border-radius: 8px !important;
+}
+
+.gradio-container button.primary {
+    background: var(--f1-accent) !important;
+    color: white !important;
+    border-color: var(--f1-accent) !important;
+    box-shadow: 0 10px 28px rgba(232, 0, 45, 0.26);
 }
 
 .timing-data,
@@ -73,7 +256,10 @@ button.primary,
 }
 
 .tabs {
-    background: var(--f1-bg) !important;
+    margin-top: 14px;
+    background: rgba(15, 15, 15, 0.78) !important;
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
 }
 
 .stub-panel {
@@ -99,6 +285,52 @@ button.primary,
     font-family: "JetBrains Mono", monospace;
     min-height: 120px;
 }
+
+@media (max-width: 760px) {
+    #f1-shell {
+        padding: 12px 8px 32px;
+    }
+
+    #f1-hero {
+        min-height: 360px;
+    }
+
+    .driver-bg {
+        background-size: 88vw auto;
+        background-position: center bottom;
+    }
+
+    #f1-hero::before {
+        background:
+            linear-gradient(180deg, rgba(15, 15, 15, 0.82) 0%, rgba(15, 15, 15, 0.58) 54%, rgba(15, 15, 15, 0.9) 100%);
+    }
+
+    .hero-content {
+        padding: 24px;
+    }
+}
+"""
+
+HERO_HTML = """
+<section id="f1-hero" aria-label="F1 Paddock Oracle">
+    <div class="driver-bg verstappen" aria-hidden="true"></div>
+    <div class="driver-bg hamilton" aria-hidden="true"></div>
+    <div class="driver-bg schumacher" aria-hidden="true"></div>
+    <div class="driver-bg senna" aria-hidden="true"></div>
+    <div class="driver-bg norris" aria-hidden="true"></div>
+    <div class="hero-content">
+        <div class="hero-kicker">Race Intelligence</div>
+        <h1 class="hero-title">F1 Paddock <span>Oracle</span></h1>
+        <div class="hero-meta">
+            <span class="hero-chip">Verstappen</span>
+            <span class="hero-chip">Hamilton</span>
+            <span class="hero-chip">Schumacher</span>
+            <span class="hero-chip">Senna</span>
+            <span class="hero-chip">Norris</span>
+        </div>
+    </div>
+    <div class="hero-scanline" aria-hidden="true"></div>
+</section>
 """
 
 
@@ -523,6 +755,8 @@ def build_app() -> gr.Blocks:
     with gr.Blocks(css=F1_CSS, title="F1 Paddock Oracle") as app:
         with gr.Column(elem_id="f1-shell"):
             race_state = gr.State(races[0])
+
+            gr.HTML(HERO_HTML)
 
             with gr.Row(elem_id="race-topbar"):
                 race_dropdown = gr.Dropdown(
