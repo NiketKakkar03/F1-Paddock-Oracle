@@ -1,6 +1,8 @@
 .venv*
 project.md
 CLAUDE.md
+.claude/
+AGENTS.md
 
 # Python
 __pycache__/
